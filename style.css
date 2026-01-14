@@ -25,4 +25,22 @@ list-style-type: square;
 #updates a:hover {
   text-decoration: underline;
 }
+.lab-content {
+  max-width: 800px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.lab-content img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.lab-content p {
+  font-size: 1.1em;
+}
+
 ```
