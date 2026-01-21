@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab 2 – Data Logger</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Lab 2: Data Logger</h1>
+
+<div class="lab-content">
+
+  <p>
+    This lab is a extenstion of the previous lab, we will combine all the examples we show in the previous lab to form an dataloader.
+  </p>
+  <p>
+    This dataloader can capture IMU data, temperature data, timestamp associate with the data being displayed. The data can be capture in 2 ways. First, it will by default display data on the serial monitor on Arduino IDE. Second, we can store those data to SD card. 
+  </p>
+  <p>
+    Since there are 2 mode, we will be controlling the switch of the 2 mode with low energy bluetooth (BLE). The current mode will be display on the OLED screen with Mode 1: display in serial monitor, Mode 2: store in SD card. 
+  </p>
+
+  <figure>
+    <img src="lab2/mode1" alt="oled_mode1" loading="lazy">
+    <figcaption>OLED show the mode is in Mode 1</figcaption>
+  </figure>
+  <figure>
+    <img src="lab2/mode2" alt="oled_mode2" loading="lazy">
+    <figcaption>OLED show the mode is in Mode 2</figcaption>
+  </figure>
+  
+  <p>
+    We can monitor the data being displayed on the serial monitor under Mode 1.
+  </p>
+   <figure>
+    <img src="lab2/serialMon.jpg" alt="serial Monitor" loading="lazy">
+    <figcaption>Serial Monitor in Arduino IDE</figcaption>
+  </figure>
+
+   <p>
+    We can also record those data in SD card as a txt file under Mode 2.
+  </p>
+   <figure>
+    <img src="lab2/recordData.jpg" alt="recorded data" loading="lazy">
+    <figcaption>Data being recorded as txt file</figcaption>
+  </figure>
+
+   <p>
+    We control the switch between the 2 mode using the bluetooth by using the nrf Connect app, which is avaliable on both Andriod and iOS. 
+  </p>
+   <figure>
+    <img src="lab2/nrfconnect.png" alt="nrfconnect app icon" loading="lazy">
+    <figcaption>An icon to show nrf connect app</figcaption>
+  </figure>
+   <figure>
+    <img src="lab2/nrfconnect_in.png" alt="nrfconnect app inside" loading="lazy">
+    <figcaption>Inside the nrf connect app</figcaption>
+  </figure>
+  <p>
+    We can send a unsigned int 0 or 1 to control the mode switch. 
+  </p>
+
+  <a href="index.html">← Back to homepage</a>
+
+</div>
+
+</body>
+</html>
