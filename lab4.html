@@ -13,47 +13,57 @@
 <div class="lab-content">
 
   <p>
-    This lab, we start doing some hardware design. Specifically, the PCB design.
-  </p>
-  <p>
-    This lab is intended to go for 2 sessions, for this week session, we will get the schematic part of the lab. 
-  </p>
-  <p>
-    As show below, we start with the MCU as our central core.
-  </p>
-
-  <figure>
-    <img src="lab3/mcu.jpg" alt="mcu" loading="lazy">
-    <figcaption>Main Micro-controller</figcaption>
-  </figure>
-  <p>
-    Then, we go with the power supply part, since we are going to use a battery, we will use a LIPO charger to enable both charging and battery mode.
+    This is lab, we will be collecting acceleration data from IMU in XIAO nrf board for specific action, then use the data we collected to train a machine learning model to predict the action we perform.
   </p>
   <figure>
-    <img src="lab3/lipo.jpg" alt="lipo" loading="lazy">
-    <figcaption>LIPO Charging with USB</figcaption>
+    <img src="lab4/xiaonrfplus.jpg" alt="board" loading="lazy">
+    <figcaption>XIAO NRF board has a built in IMU for us to use to collect IMU information</figcaption>
   </figure>
   <p>
-    Then we start adding ultility modules, start from IMU.
+    As a start project, we will only be collecting 2 action: punch and flex.
   </p>
   <figure>
-    <img src="lab3/imu.jpg" alt="imu" loading="lazy">
-    <figcaption>IMU</figcaption>
+    <img src="lab4/flexpunch_ind.jpg" alt="flexpuncg" loading="lazy">
+    <figcaption>An indication of both action</figcaption>
   </figure>
   <p>
-    Also, SD card data read/write module.
+    We start by first program the XIAO nrf board to bluetooth forcasting mode to keep collect the IMU data, then use a python script to capture the IMU information. We will collect it twich to get both actions, and each action, we will perform the action 10 times. 
+  </p>
+  <p>
+    We will get save those actions into 2 .csv file. 
   </p>
   <figure>
-    <img src="lab3/sdcard.jpg" alt="sdcard" loading="lazy">
-    <figcaption>SD Card</figcaption>
+    <img src="lab4/captured_data.jpg" alt="csv" loading="lazy">
+    <figcaption>csv files and what's inside</figcaption>
   </figure>
   <p>
-    Finally, some miscellaneous component for battery management.
+    We can visualize those data below for both punch and flex.
   </p>
   <figure>
-    <img src="lab3/bat.jpg" alt="battery" loading="lazy">
-    <figcaption>Battery management</figcaption>
+    <img src="lab4/punch.png" alt="punch" loading="lazy">
+    <figcaption>Punch data visualization</figcaption>
   </figure>
+  <figure>
+    <img src="lab4/flex.png" alt="flex" loading="lazy">
+    <figcaption>Flex data visualization</figcaption>
+  </figure>
+  <p>
+    With those action data, we can train a very simple multi-layer neural network. We will have input layer - 20 hidden neurons - 10 hidden neurons - output layer. The training loss curve are show below.
+  </p>
+  <figure>
+    <img src="lab4/loss.png" alt="loss" loading="lazy">
+    <figcaption>Loss Curve of Training</figcaption>
+  </figure>
+  <p>
+    We will export the training result as a header file called: model.h. We can import this header file to IMU_classifier example code provided by the LSM6DS3 library for action inference. below are some result. I noticed that for punch, it is usually very accurately detected, but for flex, the accuracy is very low. The result might be due to the limited dataset (10) I have. The first box is the punch confidence level, and second box is flex confidence level. 
+  </p>
+  <figure>
+    <img src="lab4/punchflex_pred.jpg" alt="pred" loading="lazy">
+    <figcaption>Predication of actions</figcaption>
+  </figure>
+  <p>
+    This is just the first phase of this lab, next week, we will add more on top of what we currently have to include more actions.
+  </p>
 
   <a href="index.html">← Back to homepage</a>
 
