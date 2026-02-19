@@ -20,32 +20,32 @@
     <figcaption>XIAO NRF board has a built in IMU for us to use to collect IMU information</figcaption>
   </figure>
   <p>
-    As a start project, we will only be collecting 2 action: punch and flex.
+    As a start, we will only be collecting 2 action: punch and flex.
   </p>
   <figure>
     <img src="lab4/flexpunch_ind.jpg" alt="flexpuncg" loading="lazy">
     <figcaption>An indication of both action</figcaption>
   </figure>
   <p>
-    We start by first program the XIAO nrf board to bluetooth forcasting mode to keep collect the IMU data, then use a python script to capture the IMU information. We will collect it twich to get both actions, and each action, we will perform the action 10 times. 
+    We start by first program the XIAO nrf board to bluetooth forcasting mode to keep collect the IMU data, then use a python script to capture the IMU information. We will collect it twice to get both actions, and each action, we will perform the action 10 times. 
   </p>
   <p>
-    We will get save those actions into 2 .csv file. 
+    We will save those actions into 2 .csv file. 
   </p>
   <figure>
     <img src="lab4/captured_data.jpg" alt="csv" loading="lazy">
     <figcaption>csv files and what's inside</figcaption>
   </figure>
   <p>
-    We can visualize those data below for both punch and flex.
+    We can visualize those data's behavior below.
   </p>
   <figure>
     <img src="lab4/punch.png" alt="punch" loading="lazy">
-    <figcaption>Punch data visualization</figcaption>
+    <figcaption>Flex data visualization</figcaption>
   </figure>
   <figure>
     <img src="lab4/flex.png" alt="flex" loading="lazy">
-    <figcaption>Flex data visualization</figcaption>
+    <figcaption>Punch data visualization</figcaption>
   </figure>
   <p>
     With those action data, we can train a very simple multi-layer neural network. We will have input layer - 20 hidden neurons - 10 hidden neurons - output layer. The training loss curve are show below.
@@ -58,7 +58,7 @@
     We will export the training result as a header file called: model.h. We can import this header file to IMU_classifier example code provided by the LSM6DS3 library for action inference. below are some result. I noticed that for punch, it is usually very accurately detected, but for flex, the accuracy is very low. The result might be due to the limited dataset (10) I have. The first box is the punch confidence level, and second box is flex confidence level. 
   </p>
   <figure>
-    <img src="lab4/punchflex_pred.jpg" alt="pred" loading="lazy">
+    <img src="lab4/puchflex_pred.jpg" alt="pred" loading="lazy">
     <figcaption>Predication of actions</figcaption>
   </figure>
   <p>
