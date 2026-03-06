@@ -2,120 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Lab 4 – Activity Recognition with ML and IMU</title>
+  <title>Lab 5 – Finite State Machine - Adabox Race Car.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Lab 4: Activity Recognition with ML and IMU</h1>
+<h1>Lab 5: Finite State Machine - Adabox Race Car.</h1>
 
 <div class="lab-content">
 
   <p>
-    This is lab, we will be collecting acceleration data from IMU in XIAO nrf board for specific action, then use the data we collected to train a machine learning model to predict the action we perform.
+    This is the first lab of the Racer Car, in this lab, we assembled the car from parts and run a given code that allows us to control the car through bluetooth communication. As show in below vide. 
   </p>
-  <figure>
-    <img src="lab4/xiaonrfplus.jpg" alt="board" loading="lazy">
-    <figcaption>XIAO NRF board has a built in IMU for us to use to collect IMU information</figcaption>
-  </figure>
-  <p>
-    As a start, we will only be collecting 2 action: punch and flex.
-  </p>
-  <figure>
-    <img src="lab4/flexpunch_ind.jpg" alt="flexpuncg" loading="lazy">
-    <figcaption>An indication of both action</figcaption>
-  </figure>
-  <p>
-    We start by first program the XIAO nrf board to bluetooth forcasting mode to keep collect the IMU data, then use a python script to capture the IMU information. We will collect it twice to get both actions, and each action, we will perform the action 10 times. 
-  </p>
-  <p>
-    We will save those actions into 2 .csv file. 
-  </p>
-  <figure>
-    <img src="lab4/captured_data.jpg" alt="csv" loading="lazy">
-    <figcaption>csv files and what's inside</figcaption>
-  </figure>
-  <p>
-    We can visualize those data's behavior below.
-  </p>
-  <figure>
-    <img src="lab4/punch.png" alt="punch" loading="lazy">
-    <figcaption>Flex data visualization</figcaption>
-  </figure>
-  <figure>
-    <img src="lab4/flex.png" alt="flex" loading="lazy">
-    <figcaption>Punch data visualization</figcaption>
-  </figure>
-  <p>
-    With those action data, we can train a very simple multi-layer neural network. We will have input layer - 20 hidden neurons - 10 hidden neurons - output layer. The training loss curve are show below.
-  </p>
-  <figure>
-    <img src="lab4/loss.png" alt="loss" loading="lazy">
-    <figcaption>Loss Curve of Training</figcaption>
-  </figure>
-  <p>
-    We will export the training result as a header file called: model.h. We can import this header file to IMU_classifier example code provided by the LSM6DS3 library for action inference. below are some result. I noticed that for punch, it is usually very accurately detected, but for flex, the accuracy is very low. The result might be due to the limited dataset (10) I have. The first box is the punch confidence level, and second box is flex confidence level. 
-  </p>
-  <figure>
-    <img src="lab4/puchflex_pred.jpg" alt="pred" loading="lazy">
-    <figcaption>Predication of actions</figcaption>
-  </figure>
-  <p>
-    This is just the first phase of this lab, next week, we will add more on top of what we currently have to include more actions.
-  </p>
-
-  <p>
-    In the following week, we continue to extend the expperiment on 5 actions. they are: go down stairs, sitting, standing, go up stairs, and walking. As show below, the data collected visualization 
-  </p>
-  <figure>
-    <img src="lab4/ds.png" alt="ds" loading="lazy">
-    <figcaption>Down Stairs Data Visualization</figcaption>
-  </figure>
-  <figure>
-    <img src="lab4/sit.png" alt="ds" loading="lazy">
-    <figcaption>Sitting Data Visualization</figcaption>
-  </figure>
-  <figure>
-    <img src="lab4/stand.png" alt="ds" loading="lazy">
-    <figcaption>Standing Data Visualization</figcaption>
-  </figure>
-  <figure>
-    <img src="lab4/us.png" alt="ds" loading="lazy">
-    <figcaption>Up Stairs Data Visualization</figcaption>
-  </figure>
-  <figure>
-    <img src="lab4/walk.png" alt="ds" loading="lazy">
-    <figcaption>Walking Data Visualization</figcaption>
-  </figure>
-  <p>
-    As well as their prediction result as below. 
-  </p>
-  <div class="figure-container">
-    <figure>
-        <img src="lab4/downstair.jpg" alt="ds">
-        <figcaption>Go down stair prediction</figcaption>
-    </figure>
-    <figure>
-        <img src="lab4/sitting.jpg" alt="sit">
-        <figcaption>Sitting prediction</figcaption>
-    </figure>
-    <figure>
-        <img src="lab4/standing.jpg" alt="stand">
-        <figcaption>Standing prediction</figcaption>
-    </figure>
-    <figure>
-        <img src="lab4/upstair.jpg" alt="us">
-        <figcaption>Go up stair prediction</figcaption>
-    </figure>
-    <figure>
-        <img src="lab4/walking.jpg" alt="walk">
-        <figcaption>Walking prediction</figcaption>
-    </figure>
-  </div>
-  <p>
-    It can be see that for walking and standing, they are very easy to be confused with up stair and down stair due to their similarity. The result for walking and standing are blured because other action typically involves part of walking or standing. For sitting, the cofidence level is very high because it is the one action that have clearly different compare to others. For up and down stairs, it is also kind of not perfect due to the similarity among other actions. 
-  </p>
+  <video controls width="600">
+    <source src="lab4/car.mp4" type="video/mp4">
+    <!-- Your browser does not support the video tag. -->
+  </video>
 
   <a href="index.html">← Back to homepage</a>
 
