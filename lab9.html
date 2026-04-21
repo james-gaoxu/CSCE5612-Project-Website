@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab 9: Real-Time Operating System + WiFi.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<h1>Lab 9: Real-Time Operating System + WiFi.</h1>
+
+<div class="lab-content">
+
+  <p>
+    In this lab, we focus using ESP32 to create a pulse width modulation (PWM) that can be used to control the rotation speed of a small DC motor. the circuit is as show below.
+  </p>
+  <figure>
+    <img src="lab8/lab8_cir.png" alt="circuit" loading="lazy">
+    <figcaption>Circuit illustration of lab8</figcaption>
+  </figure>
+  <p>
+    The PWM signal is going to be output from a GPIO port through a resistor and transistor to DC motor. Around the DC motor, there is a diode to prevent the current from back flowing (In the vide experiment, the current still back flow to create a feedback loop that increase the speed of DC motor unstoppable). We also have 2 buttons to control the PWM duty cycle, button 1 for increase, and button 2 for decrease. Both button will trigger a interrupt to override the main loop's current duty cycle. 
+  </p>
+  <p>
+    As shown below video, we demostrate a increase of duty cycle for the motor to turn faster.  
+  </p>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/WblkMUCXn8c?si=ye63kR-O_Zw_Bhs6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  
+  <a href="index.html">← Back to homepage</a>
+
+</div>
+
+</body>
+</html>
